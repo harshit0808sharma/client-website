@@ -247,7 +247,7 @@ const SalonGetInTouch = () => {
                                     style={{ '--tw-ring-color': salonData?.branding?.primaryColor + '80' || '#11111180' }}
                                 >
                                     <option value="">Select a service</option>
-                                    {salonData?.services?.map((s) => (
+                                    {salonData?.services?.items?.map((s) => (
                                         <option key={s.id} value={s.id}>
                                             {s.title}
                                         </option>
