@@ -60,7 +60,7 @@ const SalonTestimonials = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        {salonData?.testimonialsSubHeading || "Don't just take our word for it - hear from our satisfied customers"}
+                        {salonData?.testimonialsSubHeading || "Do not just take our word for it, hear from our satisfied customers"}
                     </motion.p>
                 </div>
 
