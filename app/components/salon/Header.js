@@ -42,7 +42,7 @@ const SalonHeader = () => {
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link
-                            href="/"
+                            href="/contact"
                             className="text-3xl font-bold tracking-tight"
                             style={{ color: salonData?.branding?.primaryColor || '#000' }}
                         >
@@ -111,7 +111,7 @@ const SalonHeader = () => {
                             ))}
                             {salonData?.settings?.showBookingButton && (
                                 <Link
-                                    href={salonData?.hero?.cta?.link || '#'}
+                                    href="/contact"
                                     className="mt-4 w-full px-6 py-3 text-center rounded-full text-white font-semibold"
                                     onClick={() => setMobileMenuOpen(false)}
                                     style={{ backgroundColor: salonData?.branding?.primaryColor || '#000' }}

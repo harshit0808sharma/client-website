@@ -3,6 +3,11 @@ import SalonHeader from '../components/salon/Header'
 import SalonFooter from '../components/salon/Footer'
 import SalonGetInTouch from '../components/salon/GetInTouch'
 
+export const metadata = {
+  title: "contact us",
+  description: "",
+}
+
 const Contact = () => {
   return (
     <>

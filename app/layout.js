@@ -39,6 +39,11 @@ const fontMap = {
   Karla: karla,
 };
 
+export const metadata = {
+  title: salonData?.name,
+  description: salonData?.hero?.subHeading
+}
+
 export default function RootLayout({ children }) {
   const fontName = salonData?.branding?.fontFamily?.split(",")[0].trim() || "Montserrat";
   const font = fontMap[fontName] || montserrat;

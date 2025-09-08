@@ -8,7 +8,6 @@ import { FaStar, FaSpa, FaArrowRight } from 'react-icons/fa';
 const SalonHero = () => {
     if (!salonData?.hero) return null;
 
-    // Animation variants
     const headingVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
@@ -24,14 +23,14 @@ const SalonHero = () => {
         visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.8 } },
     };
 
-    const floatingIconVariant = {
-        animate: {
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            rotate: [0, 15, -15, 0],
-            transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-        },
-    };
+    // const floatingIconVariant = {
+    //     animate: {
+    //         y: [0, -20, 0],
+    //         x: [0, 10, 0],
+    //         rotate: [0, 15, -15, 0],
+    //         transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+    //     },
+    // };
 
     return (
         <section
@@ -51,7 +50,7 @@ const SalonHero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
 
             {/* Floating decorative icons */}
-            <motion.div
+            {/* <motion.div
                 className="absolute top-1/4 left-1/4 text-yellow-400 text-3xl z-20"
                 variants={floatingIconVariant}
                 animate="animate"
@@ -64,7 +63,7 @@ const SalonHero = () => {
                 animate="animate"
             >
                 <FaSpa />
-            </motion.div>
+            </motion.div> */}
 
             {/* Hero content */}
             <div className="relative z-30 text-center text-white max-w-5xl mx-auto px-4">

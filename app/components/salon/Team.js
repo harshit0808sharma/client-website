@@ -34,7 +34,7 @@ const SalonTeam = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        Meet Our Team 💇‍♀️
+                        Meet Our Team
                     </motion.h2>
 
                     <motion.p

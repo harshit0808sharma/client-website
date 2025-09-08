@@ -23,28 +23,32 @@
     "paragraph": "Radiance Salon is your destination for premium beauty care. From innovative hairstyles to soothing facials, we bring out the best in you.",
     "imageUrl": "/images/salonabout.jpeg"
   },
-  "services": [
-    {
-      "id": "srv1",
-      "title": "Haircut & Styling",
-      "description": "Trendy cuts and styles tailored to your personality.",
-      "price": 30,
-      "duration": "45 min",
-      "imageUrl": "/images/service1.jpg",
-      "icon": "FaScissors",
-      "order": 1
-    },
-    {
-      "id": "srv2",
-      "title": "Facial & Skincare",
-      "description": "Relaxing facials to keep your skin glowing and healthy.",
-      "price": 50,
-      "duration": "60 min",
-      "imageUrl": "/images/service2.jpg",
-      "icon": "FaSpa",
-      "order": 2
-    }
-  ],
+  "services": {
+    "title": "Our Services",
+    "description": "Explore our wide range of beauty and grooming services.",
+    "items": [
+      {
+        "id": "srv1",
+        "title": "Haircut & Styling",
+        "description": "Trendy cuts and styles tailored to your personality.",
+        "price": 30,
+        "duration": "45 min",
+        "imageUrl": "/images/service1.jpg",
+        "icon": "FaScissors",
+        "order": 1
+      },
+      {
+        "id": "srv2",
+        "title": "Facial & Skincare",
+        "description": "Relaxing facials to keep your skin glowing and healthy.",
+        "price": 50,
+        "duration": "60 min",
+        "imageUrl": "/images/service2.jpg",
+        "icon": "FaSpa",
+        "order": 2
+      }
+    ]
+  },
   "testimonials": [
     {
       "id": "t1",

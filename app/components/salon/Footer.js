@@ -43,7 +43,7 @@ const SalonFooter = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
-                                            style={{ backgroundColor: salonData?.branding?.secondaryColor || '#6b7280' }}
+                                            style={{ backgroundColor: salonData?.branding?.primaryColor || '#6b7280' }}
                                         >
                                             <IconComponent className="text-white text-xl" />
                                         </a>
