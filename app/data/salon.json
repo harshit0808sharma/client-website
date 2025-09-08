@@ -1,0 +1,144 @@
+{
+  "_id": "ObjectId('...')",
+  "slug": "radiance-salon",
+  "name": "Radiance Salon",
+  "branding": {
+    "logoUrl": "/images/image.jpeg",
+    "faviconUrl": "/images/favicon.ico",
+    "primaryColor": "#6A1B9A",
+    "secondaryColor": "#F3E5F5",
+    "fontFamily": "Montserrat, sans-serif"
+  },
+  "hero": {
+    "heroImageUrl": "/images/salonhero.jpeg",
+    "heading": "Glow With Confidence",
+    "subHeading": "Luxury treatments for your hair, skin, and style.",
+    "cta": {
+      "label": "Schedule a Visit",
+      "link": "/"
+    }
+  },
+  "about": {
+    "title": "About Radiance",
+    "paragraph": "Radiance Salon is your destination for premium beauty care. From innovative hairstyles to soothing facials, we bring out the best in you.",
+    "imageUrl": "/images/salonabout.jpeg"
+  },
+  "services": [
+    {
+      "id": "srv1",
+      "title": "Haircut & Styling",
+      "description": "Trendy cuts and styles tailored to your personality.",
+      "price": 30,
+      "duration": "45 min",
+      "imageUrl": "/images/service1.jpg",
+      "icon": "FaScissors",
+      "order": 1
+    },
+    {
+      "id": "srv2",
+      "title": "Facial & Skincare",
+      "description": "Relaxing facials to keep your skin glowing and healthy.",
+      "price": 50,
+      "duration": "60 min",
+      "imageUrl": "/images/service2.jpg",
+      "icon": "FaSpa",
+      "order": 2
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "clientName": "Priya Singh",
+      "role": "Frequent Visitor",
+      "text": "Absolutely loved the service. My skin feels amazing!",
+      "photoUrl": "/images/profileImage2.png",
+      "rating": 5,
+      "order": 1
+    },
+    {
+      "id": "t2",
+      "clientName": "Arjun Verma",
+      "role": "First-Time Guest",
+      "text": "Great staff and ambiance. The haircut exceeded expectations.",
+      "photoUrl": "/images/profileImage6.png",
+      "rating": 4,
+      "order": 2
+    }
+  ],
+  "team": [
+    {
+      "id": "tm1",
+      "name": "Meera Joshi",
+      "role": "Creative Director",
+      "bio": "Passionate about trend-setting hairstyles and color artistry with 12+ years of expertise.",
+      "photoUrl": "/images/profileImage1.png",
+      "socials": [
+        {
+          "platform": "instagram",
+          "url": "/"
+        }
+      ]
+    },
+    {
+      "id": "tm2",
+      "name": "Rohit Malhotra",
+      "role": "Skin Care Specialist",
+      "bio": "Specializes in advanced facials and rejuvenation therapies.",
+      "photoUrl": "/images/profileImage5.jpg",
+      "socials": [
+        {
+          "platform": "instagram",
+          "url": "/"
+        }
+      ]
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "facebook",
+      "url": "/"
+    },
+    {
+      "platform": "instagram",
+      "url": "/"
+    },
+    {
+      "platform": "whatsapp",
+      "url": "/"
+    }
+  ],
+  "contact": {
+    "phone": "+91 98123 45678",
+    "email": "hello@radiancesalon.com",
+    "address": "456 Park Avenue, New Delhi, India",
+    "locationMapUrl": "/",
+    "openingHours": [
+      {
+        "day": "Monday",
+        "hours": "09:30 AM – 7:30 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "09:30 AM – 7:30 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "Closed"
+      }
+    ]
+  },
+  "seo": {
+    "metaTitle": "Radiance Salon | Premium Beauty Services in Delhi",
+    "metaDescription": "Discover Radiance Salon for luxury hair, skincare, and makeup services in Delhi. Book your appointment now!",
+    "ogImageUrl": "/images/salonhero.jpeg",
+    "canonicalUrl": "/",
+    "siteUrl": "/"
+  },
+  "settings": {
+    "published": true,
+    "theme": "light",
+    "showBookingButton": true,
+    "enableChatWidget": false,
+    "lastUpdated": "2025-08-31T12:00:00Z"
+  }
+}
