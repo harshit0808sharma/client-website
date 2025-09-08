@@ -98,7 +98,7 @@ const SalonHero = () => {
                         className="inline-block"
                     >
                         <Link
-                            href="/"
+                            href="/contact"
                             className="px-10 py-5 text-lg font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 transform"
                             style={{ backgroundColor: salonData?.branding?.primaryColor || "#111", boxShadow: '0 8px 15px rgba(0,0,0,0.2)' }}
                         >

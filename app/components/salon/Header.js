@@ -66,7 +66,7 @@ const SalonHeader = () => {
 
                         {salonData?.settings?.showBookingButton && (
                             <Link
-                                href='/'
+                                href='/contact'
                                 className="ml-4 px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                                 style={{ backgroundColor: salonData?.branding?.primaryColor || '#000' }}
                             >
