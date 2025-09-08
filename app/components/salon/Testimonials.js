@@ -51,7 +51,7 @@ const SalonTestimonials = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        {salonData?.testimonialsHeading || "What Our Clients Say"} 🗣️
+                        {salonData?.testimonialsHeading || "What Our Clients Say"}
                     </motion.h2>
                     <motion.p
                         className="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -89,7 +89,7 @@ const SalonTestimonials = () => {
                                 >
                                     <FaQuoteLeft />
                                 </motion.div>
-                                <p className="text-gray-700 italic text-lg leading-relaxed pl-8">"{testimonial.text || "No testimonial text available."}"</p>
+                                <p className="text-gray-700 italic text-lg leading-relaxed pl-8">{testimonial.text || "No testimonial text available."}</p>
                             </div>
 
                             <div className="flex items-center">
