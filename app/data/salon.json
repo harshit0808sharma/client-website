@@ -293,5 +293,299 @@
       "enableChatWidget": false,
       "lastUpdated": "2025-09-01T12:00:00Z"
     }
+  },
+  {
+    "slug": "luminous-salon",
+    "name": "Luminous Salon",
+    "branding": {
+      "logoUrl": "/images/glow-salon.jpeg",
+      "faviconUrl": "/images/glow-favicon.ico",
+      "primaryColor": "#673AB7",
+      "secondaryColor": "#D1C4E9",
+      "fontFamily": "Poppins, sans-serif"
+    },
+    "hero": {
+      "heroImageUrl": "/images/glow-salon.jpeg",
+      "heading": "Glow With Confidence",
+      "subHeading": "Personalized beauty treatments for every occasion.",
+      "cta": {
+        "label": "Book Now",
+        "link": "/"
+      }
+    },
+    "about": {
+      "title": "About Luminous Salon",
+      "paragraph": "Luminous Salon delivers exceptional hair, skin, and nail services in a relaxing environment, helping you shine inside and out.",
+      "imageUrl": "/images/glow-salon.jpeg"
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "Choose from a variety of grooming and beauty treatments designed for your needs.",
+      "items": [
+        {
+          "id": "srv1",
+          "title": "Advanced Hair Care",
+          "description": "Professional cuts, coloring, and styling services.",
+          "price": 45,
+          "duration": "50 min",
+          "imageUrl": "/images/glow-salon.jpeg",
+          "icon": "FaScissors",
+          "order": 1
+        },
+        {
+          "id": "srv2",
+          "title": "Spa & Skincare",
+          "description": "Relaxing facials and rejuvenating treatments for glowing skin.",
+          "price": 65,
+          "duration": "60 min",
+          "imageUrl": "/images/glow-salon.jpeg",
+          "icon": "FaSpa",
+          "order": 2
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "id": "t1",
+        "clientName": "Siddhi Patel",
+        "role": "Regular Client",
+        "text": "Excellent service! I always leave feeling refreshed and confident.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "rating": 5,
+        "order": 1
+      },
+      {
+        "id": "t2",
+        "clientName": "Rahul Desai",
+        "role": "New Client",
+        "text": "Friendly staff and professional services. Highly recommend.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "rating": 4,
+        "order": 2
+      }
+    ],
+    "team": [
+      {
+        "id": "tm1",
+        "name": "Anika Rao",
+        "role": "Lead Stylist",
+        "bio": "Specializes in creative hair styling and coloring techniques with 9+ years experience.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "socials": [
+          {
+            "platform": "instagram",
+            "url": "/"
+          }
+        ]
+      },
+      {
+        "id": "tm2",
+        "name": "Dev Malhotra",
+        "role": "Skin Therapist",
+        "bio": "Expert in facials, skin rejuvenation, and wellness treatments.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "socials": [
+          {
+            "platform": "instagram",
+            "url": "/"
+          }
+        ]
+      }
+    ],
+    "socialLinks": [
+      {
+        "platform": "facebook",
+        "url": "/"
+      },
+      {
+        "platform": "instagram",
+        "url": "/"
+      },
+      {
+        "platform": "whatsapp",
+        "url": "/"
+      }
+    ],
+    "contact": {
+      "phone": "+91 92345 67890",
+      "email": "info@luminoussalon.com",
+      "address": "789 Elegance Road, Mumbai, India",
+      "locationMapUrl": "/",
+      "openingHours": [
+        {
+          "day": "Monday",
+          "hours": "10:00 AM – 8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "10:00 AM – 8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ]
+    },
+    "seo": {
+      "metaTitle": "Luminous Salon | Premium Hair & Beauty Services in Mumbai",
+      "metaDescription": "Visit Luminous Salon for professional hair, skincare, and nail services. Book your appointment today!",
+      "ogImageUrl": "/images/glow-salon.jpeg",
+      "canonicalUrl": "/",
+      "siteUrl": "/"
+    },
+    "settings": {
+      "published": true,
+      "theme": "light",
+      "showBookingButton": true,
+      "enableChatWidget": false,
+      "lastUpdated": "2025-09-09T12:30:00Z"
+    }
+  },
+  {
+    "slug": "sparkle-salon",
+    "name": "Sparkle Salon",
+    "branding": {
+      "logoUrl": "/images/glow-salon.jpeg",
+      "faviconUrl": "/images/glow-favicon.ico",
+      "primaryColor": "#FF9800",
+      "secondaryColor": "#FFE0B2",
+      "fontFamily": "Poppins, sans-serif"
+    },
+    "hero": {
+      "heroImageUrl": "/images/glow-salon.jpeg",
+      "heading": "Bring Out Your Sparkle",
+      "subHeading": "Tailored beauty treatments for every style and mood.",
+      "cta": {
+        "label": "Reserve Your Slot",
+        "link": "/"
+      }
+    },
+    "about": {
+      "title": "About Sparkle Salon",
+      "paragraph": "Sparkle Salon combines luxury and comfort, offering hair, skin, and nail services designed to make you shine.",
+      "imageUrl": "/images/glow-salon.jpeg"
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "A full range of grooming and beauty treatments to suit your needs.",
+      "items": [
+        {
+          "id": "srv1",
+          "title": "Hair Styling & Treatments",
+          "description": "Professional cuts, coloring, and modern styling techniques.",
+          "price": 50,
+          "duration": "50 min",
+          "imageUrl": "/images/glow-salon.jpeg",
+          "icon": "FaScissors",
+          "order": 1
+        },
+        {
+          "id": "srv2",
+          "title": "Spa & Skincare",
+          "description": "Relaxing facials and rejuvenating spa sessions for radiant skin.",
+          "price": 70,
+          "duration": "60 min",
+          "imageUrl": "/images/glow-salon.jpeg",
+          "icon": "FaSpa",
+          "order": 2
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "id": "t1",
+        "clientName": "Neha Gupta",
+        "role": "Regular Client",
+        "text": "Wonderful staff and services. Always a pleasant experience!",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "rating": 5,
+        "order": 1
+      },
+      {
+        "id": "t2",
+        "clientName": "Amit Joshi",
+        "role": "New Client",
+        "text": "Great ambiance and professional treatments. Highly recommended.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "rating": 4,
+        "order": 2
+      }
+    ],
+    "team": [
+      {
+        "id": "tm1",
+        "name": "Rhea Sharma",
+        "role": "Lead Stylist",
+        "bio": "Expert in creative hairstyles and coloring with 7+ years of experience.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "socials": [
+          {
+            "platform": "instagram",
+            "url": "/"
+          }
+        ]
+      },
+      {
+        "id": "tm2",
+        "name": "Arjun Kapoor",
+        "role": "Skin Specialist",
+        "bio": "Focused on facials, skincare, and rejuvenation treatments.",
+        "photoUrl": "/images/glow-salon.jpeg",
+        "socials": [
+          {
+            "platform": "instagram",
+            "url": "/"
+          }
+        ]
+      }
+    ],
+    "socialLinks": [
+      {
+        "platform": "facebook",
+        "url": "/"
+      },
+      {
+        "platform": "instagram",
+        "url": "/"
+      },
+      {
+        "platform": "whatsapp",
+        "url": "/"
+      }
+    ],
+    "contact": {
+      "phone": "+91 93456 78901",
+      "email": "hello@sparklesalon.com",
+      "address": "321 Style Avenue, Mumbai, India",
+      "locationMapUrl": "/",
+      "openingHours": [
+        {
+          "day": "Monday",
+          "hours": "10:00 AM – 8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "10:00 AM – 8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ]
+    },
+    "seo": {
+      "metaTitle": "Sparkle Salon | Hair, Skin & Nail Services in Mumbai",
+      "metaDescription": "Experience Sparkle Salon for professional beauty treatments in Mumbai. Book your appointment now!",
+      "ogImageUrl": "/images/glow-salon.jpeg",
+      "canonicalUrl": "/",
+      "siteUrl": "/"
+    },
+    "settings": {
+      "published": true,
+      "theme": "light",
+      "showBookingButton": true,
+      "enableChatWidget": false,
+      "lastUpdated": "2025-09-09T13:00:00Z"
+    }
   }
 ]

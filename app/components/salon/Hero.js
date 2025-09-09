@@ -2,9 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaStar, FaSpa, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 const SalonHero = ({data}) => {
+    const pathname = usePathname();
+      const currentSlug = pathname.split('/')[1] || '';
     if (!data?.hero) return null;
 
     const headingVariants = {
@@ -40,22 +43,6 @@ const SalonHero = ({data}) => {
             {/* Overlay gradient for text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
 
-            {/* Floating decorative icons */}
-            {/* <motion.div
-                className="absolute top-1/4 left-1/4 text-yellow-400 text-3xl z-20"
-                variants={floatingIconVariant}
-                animate="animate"
-            >
-                <FaStar />
-            </motion.div>
-            <motion.div
-                className="absolute bottom-1/4 right-1/4 text-pink-400 text-4xl z-20"
-                variants={floatingIconVariant}
-                animate="animate"
-            >
-                <FaSpa />
-            </motion.div> */}
-
             {/* Hero content */}
             <div className="relative z-30 text-center text-white max-w-5xl mx-auto px-4">
                 {/* Heading */}
@@ -89,7 +76,7 @@ const SalonHero = ({data}) => {
                         className="inline-block"
                     >
                         <Link
-                            href="/contact"
+                            href={`/${currentSlug}/contact`}
                             className="px-10 py-5 text-lg font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 transform"
                             style={{ backgroundColor: data?.branding?.primaryColor || "#111", boxShadow: '0 8px 15px rgba(0,0,0,0.2)' }}
                         >

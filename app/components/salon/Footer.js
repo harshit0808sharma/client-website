@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
     FaFacebook,
     FaInstagram,
@@ -9,6 +11,8 @@ import {
 } from 'react-icons/fa';
 
 const SalonFooter = ({data}) => {
+    const pathname = usePathname();
+    const currentslug = pathname.split('/')[1] || '';
     const socialIconMap = {
         facebook: FaFacebook,
         instagram: FaInstagram,
@@ -57,27 +61,27 @@ const SalonFooter = ({data}) => {
                         <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                <Link href={`/${currentslug}/`} className="text-gray-400 hover:text-white transition-colors duration-200">
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                <Link href={`/${currentslug}/about`} className="text-gray-400 hover:text-white transition-colors duration-200">
                                     About
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                <Link href={`/${currentslug}/services`} className="text-gray-400 hover:text-white transition-colors duration-200">
                                     Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/team" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                <Link href={`/${currentslug}/team`} className="text-gray-400 hover:text-white transition-colors duration-200">
                                     Team
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                <Link href={`/${currentslug}/contact`} className="text-gray-400 hover:text-white transition-colors duration-200">
                                     Contact
                                 </Link>
                             </li>
