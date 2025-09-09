@@ -1,3 +1,4 @@
+//[..salon] inside app folder
 "use server";
 
 import { headers } from "next/headers";
