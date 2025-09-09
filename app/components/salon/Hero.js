@@ -1,12 +1,11 @@
 'use client'
 
 import Link from 'next/link';
-import salonData from '../../data/salon.json';
 import { motion } from 'framer-motion';
 import { FaStar, FaSpa, FaArrowRight } from 'react-icons/fa';
 
-const SalonHero = () => {
-    if (!salonData?.hero) return null;
+const SalonHero = ({data}) => {
+    if (!data?.hero) return null;
 
     const headingVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -23,14 +22,6 @@ const SalonHero = () => {
         visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.8 } },
     };
 
-    // const floatingIconVariant = {
-    //     animate: {
-    //         y: [0, -20, 0],
-    //         x: [0, 10, 0],
-    //         rotate: [0, 15, -15, 0],
-    //         transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-    //     },
-    // };
 
     return (
         <section
@@ -40,7 +31,7 @@ const SalonHero = () => {
             {/* Background image with subtle animation */}
             <motion.div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${salonData?.hero?.heroImageUrl || "/placeholder.jpg"})` }}
+                style={{ backgroundImage: `url(${data?.hero?.heroImageUrl || "/placeholder.jpg"})` }}
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 4, ease: "easeOut" }}
@@ -74,7 +65,7 @@ const SalonHero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    {salonData?.hero?.heading || "Welcome to Our Salon"}
+                    {data?.hero?.heading || "Welcome to Our Salon"}
                 </motion.h1>
 
                 {/* Subheading */}
@@ -84,11 +75,11 @@ const SalonHero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    {salonData?.hero?.subHeading || "Your beauty, our passion."}
+                    {data?.hero?.subHeading || "Your beauty, our passion."}
                 </motion.p>
 
                 {/* CTA button */}
-                {salonData?.hero?.cta?.label && (
+                {data?.hero?.cta?.label && (
                     <motion.div
                         variants={ctaVariants}
                         initial="hidden"
@@ -100,9 +91,9 @@ const SalonHero = () => {
                         <Link
                             href="/contact"
                             className="px-10 py-5 text-lg font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 transform"
-                            style={{ backgroundColor: salonData?.branding?.primaryColor || "#111", boxShadow: '0 8px 15px rgba(0,0,0,0.2)' }}
+                            style={{ backgroundColor: data?.branding?.primaryColor || "#111", boxShadow: '0 8px 15px rgba(0,0,0,0.2)' }}
                         >
-                            {salonData?.hero?.cta?.label}
+                            {data?.hero?.cta?.label}
                             <FaArrowRight />
                         </Link>
                     </motion.div>

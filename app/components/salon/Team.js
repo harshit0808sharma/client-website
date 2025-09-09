@@ -1,12 +1,11 @@
 'use client'
 
-import salonData from '../../data/salon.json';
 import Image from 'next/image';
 import { FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-const SalonTeam = () => {
-    if (!salonData?.team?.length) return null;
+const SalonTeam = ({data}) => {
+    if (!data?.team?.length) return null;
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -28,7 +27,7 @@ const SalonTeam = () => {
                 <div className="text-center mb-16">
                     <motion.h2
                         className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
-                        style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                        style={{ color: data?.branding?.primaryColor || "#111" }}
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -44,7 +43,7 @@ const SalonTeam = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        {salonData?.teamHeading || "Our skilled professionals are dedicated to making you look and feel your best"}
+                        {data?.teamHeading || "Our skilled professionals are dedicated to making you look and feel your best"}
                     </motion.p>
                 </div>
 
@@ -56,7 +55,7 @@ const SalonTeam = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    {salonData.team.map((member) => (
+                    {data.team.map((member) => (
                         <motion.div
                             key={member.id}
                             className="bg-white rounded-3xl shadow-xl p-8 text-center relative group overflow-hidden transition-all duration-300"
@@ -80,7 +79,7 @@ const SalonTeam = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
-                                    style={{ backgroundColor: salonData?.branding?.primaryColor || "#111" }}
+                                    style={{ backgroundColor: data?.branding?.primaryColor || "#111" }}
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.5 }}
@@ -95,7 +94,7 @@ const SalonTeam = () => {
                                 <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name || "Name"}</h3>
                                 <p
                                     className="text-lg font-medium mb-3"
-                                    style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                                    style={{ color: data?.branding?.primaryColor || "#111" }}
                                 >
                                     {member.role || "Role"}
                                 </p>

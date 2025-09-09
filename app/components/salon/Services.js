@@ -1,5 +1,4 @@
 'use client';
-import salonData from '../../data/salon.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCut, FaSpa, FaStar, FaClock, FaHandSparkles } from 'react-icons/fa';
@@ -11,8 +10,8 @@ const iconMap = {
   FaHandSparkles: FaHandSparkles
 };
 
-const SalonServices = () => {
-  if (!salonData?.services?.items?.length) return null;
+const SalonServices = ({data}) => {
+  if (!data?.services?.items?.length) return null;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,7 +40,7 @@ const SalonServices = () => {
     <motion.section
       id="services"
       className="py-20"
-      style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+      style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -52,13 +51,13 @@ const SalonServices = () => {
         <div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
-            style={{ color: salonData?.branding?.primaryColor || "#111" }}
+            style={{ color: data?.branding?.primaryColor || "#111" }}
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {salonData?.services?.title || "Our Services"}
+            {data?.services?.title || "Our Services"}
           </motion.h2>
           <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -67,7 +66,7 @@ const SalonServices = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {salonData?.services?.description || "Experience our premium beauty services designed to enhance your natural beauty."}
+            {data?.services?.description || "Experience our premium beauty services designed to enhance your natural beauty."}
           </motion.p>
         </div>
 
@@ -76,7 +75,7 @@ const SalonServices = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
           variants={containerVariants}
         >
-          {salonData?.services?.items?.map((service) => {
+          {data?.services?.items?.map((service) => {
             const IconComponent = iconMap[service.icon] || FaStar;
 
             return (
@@ -101,11 +100,11 @@ const SalonServices = () => {
                   <div className="flex items-center mb-5">
                     <div
                       className="p-4 rounded-full mr-5"
-                      style={{ backgroundColor: salonData?.branding?.secondaryColor || "#e5e7eb" }}
+                      style={{ backgroundColor: data?.branding?.secondaryColor || "#e5e7eb" }}
                     >
                       <IconComponent
                         className="text-2xl"
-                        style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                        style={{ color: data?.branding?.primaryColor || "#111" }}
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">{service.title || "Service Title"}</h3>
@@ -115,7 +114,7 @@ const SalonServices = () => {
                     <div className="flex items-center space-x-5">
                       <span
                         className="text-3xl font-extrabold"
-                        style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                        style={{ color: data?.branding?.primaryColor || "#111" }}
                       >
                         ₹{service.price || "N/A"}
                       </span>
@@ -127,7 +126,7 @@ const SalonServices = () => {
                     <Link
                       href="/contact"
                       className="px-6 py-3 rounded-full text-white font-semibold shadow-lg transition-all duration-300 transform hover:scale-105"
-                      style={{ backgroundColor: salonData?.branding?.primaryColor || "#111" }}
+                      style={{ backgroundColor: data?.branding?.primaryColor || "#111" }}
                     >
                       Book Now
                     </Link>

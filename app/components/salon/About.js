@@ -1,12 +1,11 @@
 "use client";
 
-import salonData from "../../data/salon.json";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 
-const SalonAbout = () => {
-    if (!salonData?.about) return null;
+const SalonAbout = ({data}) => {
+    if (!data?.about) return null;
 
     const sectionVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -61,30 +60,30 @@ const SalonAbout = () => {
                     <div className="order-2 lg:order-1">
                         <motion.h2
                             className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight"
-                            style={{ color: salonData?.branding?.primaryColor || "#000" }}
+                            style={{ color: data?.branding?.primaryColor || "#000" }}
                             variants={textVariants}
                         >
-                            {salonData?.about?.title || "About Our Salon"}
+                            {data?.about?.title || "About Our Salon"}
                         </motion.h2>
 
                         <motion.p
                             className="text-lg text-gray-700 leading-relaxed mb-8"
                             variants={textVariants}
                         >
-                            {salonData?.about?.paragraph ||
+                            {data?.about?.paragraph ||
                                 "Welcome to our salon! We provide professional beauty and wellness services."}
                         </motion.p>
 
                         <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-6" variants={sectionVariants}>
                             <motion.div
                                 className="text-center p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-                                style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+                                style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
                                 variants={textVariants}
                                 whileHover={{ scale: 1.05 }}
                             >
                                 <div
                                     className="text-4xl font-bold mb-2"
-                                    style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                                    style={{ color: data?.branding?.primaryColor || "#111" }}
                                 >
                                     500+
                                 </div>
@@ -93,13 +92,13 @@ const SalonAbout = () => {
 
                             <motion.div
                                 className="text-center p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-                                style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+                                style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
                                 variants={textVariants}
                                 whileHover={{ scale: 1.05 }}
                             >
                                 <div
                                     className="text-4xl font-bold mb-2"
-                                    style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                                    style={{ color: data?.branding?.primaryColor || "#111" }}
                                 >
                                     10+
                                 </div>
@@ -115,8 +114,8 @@ const SalonAbout = () => {
                     >
                         <div className="w-full h-96 relative rounded-2xl overflow-hidden shadow-2xl">
                             <Image
-                                src={salonData?.about?.imageUrl || "/placeholder.jpg"}
-                                alt={salonData?.about?.title || "Salon Interior"}
+                                src={data?.about?.imageUrl || "/placeholder.jpg"}
+                                alt={data?.about?.title || "Salon Interior"}
                                 layout="fill"
                                 objectFit="cover"
                                 className="transition-all duration-500 hover:scale-110"

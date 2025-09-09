@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import salonData from '../../data/salon.json';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,7 +12,7 @@ const mobileMenuVariants = {
     exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
 };
 
-const SalonHeader = () => {
+const SalonHeader = ({data}) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
@@ -44,9 +43,9 @@ const SalonHeader = () => {
                         <Link
                             href="/"
                             className="text-3xl font-bold tracking-tight"
-                            style={{ color: salonData?.branding?.primaryColor || '#000' }}
+                            style={{ color: data?.branding?.primaryColor || '#000' }}
                         >
-                            {salonData?.name}
+                            {data?.name}
                         </Link>
                     </div>
 
@@ -64,13 +63,13 @@ const SalonHeader = () => {
                             </Link>
                         ))}
 
-                        {salonData?.settings?.showBookingButton && (
+                        {data?.settings?.showBookingButton && (
                             <Link
                                 href='/contact'
                                 className="ml-4 px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                                style={{ backgroundColor: salonData?.branding?.primaryColor || '#000' }}
+                                style={{ backgroundColor: data?.branding?.primaryColor || '#000' }}
                             >
-                                {salonData?.hero?.cta?.label || 'Book Now'}
+                                {data?.hero?.cta?.label || 'Book Now'}
                             </Link>
                         )}
                     </div>
@@ -109,14 +108,14 @@ const SalonHeader = () => {
                                     {link.label}
                                 </Link>
                             ))}
-                            {salonData?.settings?.showBookingButton && (
+                            {data?.settings?.showBookingButton && (
                                 <Link
                                     href="/contact"
                                     className="mt-4 w-full px-6 py-3 text-center rounded-full text-white font-semibold"
                                     onClick={() => setMobileMenuOpen(false)}
-                                    style={{ backgroundColor: salonData?.branding?.primaryColor || '#000' }}
+                                    style={{ backgroundColor: data?.branding?.primaryColor || '#000' }}
                                 >
-                                    {salonData?.hero?.cta?.label || 'Book Now'}
+                                    {data?.hero?.cta?.label || 'Book Now'}
                                 </Link>
                             )}
                         </div>

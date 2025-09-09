@@ -1,8 +1,5 @@
 'use client'
 
-"use client";
-
-import salonData from "../../data/salon.json";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +13,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const SalonGetInTouch = () => {
+const SalonGetInTouch = ({data}) => {
     const socialIconMap = {
         facebook: FaFacebook,
         instagram: FaInstagram,
@@ -64,7 +61,7 @@ const SalonGetInTouch = () => {
         setMessage("");
     };
 
-    if (!salonData?.contact) return null;
+    if (!data?.contact) return null;
 
     const sectionVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -90,7 +87,7 @@ const SalonGetInTouch = () => {
                 <div className="text-center mb-16">
                     <motion.h2
                         className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
-                        style={{ color: salonData?.branding?.primaryColor || "#000" }}
+                        style={{ color: data?.branding?.primaryColor || "#000" }}
                         variants={itemVariants}
                     >
                         Get In Touch 👋
@@ -108,58 +105,58 @@ const SalonGetInTouch = () => {
                     <div className="space-y-12">
                         <motion.div className="space-y-8" variants={itemVariants}>
                             {/* Phone */}
-                            {salonData?.contact?.phone && (
+                            {data?.contact?.phone && (
                                 <motion.div
                                     className="flex items-start space-x-4 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     <div
                                         className="p-4 rounded-full flex-shrink-0 transition-colors duration-300"
-                                        style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+                                        style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
                                     >
-                                        <FaPhone className="text-2xl" style={{ color: salonData?.branding?.primaryColor || "#111" }} />
+                                        <FaPhone className="text-2xl" style={{ color: data?.branding?.primaryColor || "#111" }} />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-gray-900">Phone</h3>
-                                        <p className="text-gray-600 mt-1">{salonData.contact.phone}</p>
+                                        <p className="text-gray-600 mt-1">{data.contact.phone}</p>
                                     </div>
                                 </motion.div>
                             )}
 
                             {/* Email */}
-                            {salonData?.contact?.email && (
+                            {data?.contact?.email && (
                                 <motion.div
                                     className="flex items-start space-x-4 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     <div
                                         className="p-4 rounded-full flex-shrink-0 transition-colors duration-300"
-                                        style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+                                        style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
                                     >
-                                        <FaEnvelope className="text-2xl" style={{ color: salonData?.branding?.primaryColor || "#111" }} />
+                                        <FaEnvelope className="text-2xl" style={{ color: data?.branding?.primaryColor || "#111" }} />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-gray-900">Email</h3>
-                                        <p className="text-gray-600 mt-1">{salonData.contact.email}</p>
+                                        <p className="text-gray-600 mt-1">{data.contact.email}</p>
                                     </div>
                                 </motion.div>
                             )}
 
                             {/* Address */}
-                            {salonData?.contact?.address && (
+                            {data?.contact?.address && (
                                 <motion.div
                                     className="flex items-start space-x-4 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     <div
                                         className="p-4 rounded-full flex-shrink-0 transition-colors duration-300"
-                                        style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+                                        style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
                                     >
-                                        <FaMapMarkerAlt className="text-2xl" style={{ color: salonData?.branding?.primaryColor || "#111" }} />
+                                        <FaMapMarkerAlt className="text-2xl" style={{ color: data?.branding?.primaryColor || "#111" }} />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-gray-900">Address</h3>
-                                        <p className="text-gray-600 mt-1">{salonData.contact.address}</p>
+                                        <p className="text-gray-600 mt-1">{data.contact.address}</p>
                                     </div>
                                 </motion.div>
                             )}
@@ -167,12 +164,12 @@ const SalonGetInTouch = () => {
 
                         {/* Opening Hours & Social Links */}
                         <motion.div className="space-y-10" variants={itemVariants}>
-                            {salonData?.contact?.openingHours?.length > 0 && (
+                            {data?.contact?.openingHours?.length > 0 && (
                                 <div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-6">Opening Hours</h3>
                                     <div className="bg-gray-100 p-6 rounded-2xl shadow-inner">
                                         <div className="space-y-3">
-                                            {salonData.contact.openingHours.map((schedule, index) => (
+                                            {data.contact.openingHours.map((schedule, index) => (
                                                 <div key={index} className="flex justify-between items-center text-gray-700 font-medium">
                                                     <span>{schedule.day}</span>
                                                     <span>{schedule.hours}</span>
@@ -183,11 +180,11 @@ const SalonGetInTouch = () => {
                                 </div>
                             )}
 
-                            {salonData?.socialLinks?.length > 0 && (
+                            {data?.socialLinks?.length > 0 && (
                                 <div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-6">Follow Us</h3>
                                     <div className="flex space-x-4">
-                                        {salonData.socialLinks.map((social, index) => {
+                                        {data.socialLinks.map((social, index) => {
                                             const IconComponent = socialIconMap[social.platform];
                                             if (!IconComponent) return null;
                                             return (
@@ -197,7 +194,7 @@ const SalonGetInTouch = () => {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="p-4 rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
-                                                    style={{ backgroundColor: salonData?.branding?.primaryColor || "#111" }}
+                                                    style={{ backgroundColor: data?.branding?.primaryColor || "#111" }}
                                                     whileHover={{ scale: 1.2, rotate: 15 }}
                                                 >
                                                     <IconComponent className="text-white text-xl" />
@@ -221,7 +218,7 @@ const SalonGetInTouch = () => {
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:outline-none transition-all duration-300"
-                                    style={{ '--tw-ring-color': salonData?.branding?.primaryColor + '80' || '#11111180' }}
+                                    style={{ '--tw-ring-color': data?.branding?.primaryColor + '80' || '#11111180' }}
                                     placeholder="Your full name"
                                 />
                             </div>
@@ -233,7 +230,7 @@ const SalonGetInTouch = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:outline-none transition-all duration-300"
-                                    style={{ '--tw-ring-color': salonData?.branding?.primaryColor + '80' || '#11111180' }}
+                                    style={{ '--tw-ring-color': data?.branding?.primaryColor + '80' || '#11111180' }}
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -244,10 +241,10 @@ const SalonGetInTouch = () => {
                                     value={service}
                                     onChange={(e) => setService(e.target.value)}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-4 focus:outline-none transition-all duration-300"
-                                    style={{ '--tw-ring-color': salonData?.branding?.primaryColor + '80' || '#11111180' }}
+                                    style={{ '--tw-ring-color': data?.branding?.primaryColor + '80' || '#11111180' }}
                                 >
                                     <option value="">Select a service</option>
-                                    {salonData?.services?.items?.map((s) => (
+                                    {data?.services?.items?.map((s) => (
                                         <option key={s.id} value={s.id}>
                                             {s.title}
                                         </option>
@@ -262,7 +259,7 @@ const SalonGetInTouch = () => {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:outline-none transition-all duration-300"
-                                    style={{ '--tw-ring-color': salonData?.branding?.primaryColor + '80' || '#11111180' }}
+                                    style={{ '--tw-ring-color': data?.branding?.primaryColor + '80' || '#11111180' }}
                                     placeholder="Tell us about your preferences..."
                                 ></textarea>
                             </div>
@@ -270,7 +267,7 @@ const SalonGetInTouch = () => {
                             <motion.button
                                 type="submit"
                                 className="w-full py-3 px-6 rounded-full text-white font-bold shadow-lg transition-all"
-                                style={{ backgroundColor: salonData?.branding?.primaryColor || "#111" }}
+                                style={{ backgroundColor: data?.branding?.primaryColor || "#111" }}
                                 whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
                                 whileTap={{ scale: 0.95 }}
                             >

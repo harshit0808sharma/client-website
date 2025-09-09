@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import salonData from '../../data/salon.json';
 import {
     FaFacebook,
     FaInstagram,
@@ -9,7 +8,7 @@ import {
     FaMapMarkerAlt,
 } from 'react-icons/fa';
 
-const SalonFooter = () => {
+const SalonFooter = ({data}) => {
     const socialIconMap = {
         facebook: FaFacebook,
         instagram: FaInstagram,
@@ -24,16 +23,16 @@ const SalonFooter = () => {
                     <div className="md:col-span-2">
                         <h3
                             className="text-3xl font-extrabold mb-4 tracking-tight"
-                            style={{ color: salonData?.branding?.primaryColor || '#FFF' }}
+                            style={{ color: data?.branding?.primaryColor || '#FFF' }}
                         >
-                            {salonData?.name}
+                            {data?.name}
                         </h3>
                         <p className="text-gray-400 mb-6 max-w-sm">
                             Your premier destination for beauty and wellness services, where luxury meets expertise.
                         </p>
-                        {salonData?.socialLinks && salonData.socialLinks.length > 0 && (
+                        {data?.socialLinks && data.socialLinks.length > 0 && (
                             <div className="flex space-x-4 mt-6">
-                                {salonData.socialLinks.map((social, index) => {
+                                {data.socialLinks.map((social, index) => {
                                     const IconComponent = socialIconMap[social?.platform];
                                     if (!IconComponent) return null;
                                     return (
@@ -43,7 +42,7 @@ const SalonFooter = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
-                                            style={{ backgroundColor: salonData?.branding?.primaryColor || '#6b7280' }}
+                                            style={{ backgroundColor: data?.branding?.primaryColor || '#6b7280' }}
                                         >
                                             <IconComponent className="text-white text-xl" />
                                         </a>
@@ -89,22 +88,22 @@ const SalonFooter = () => {
                     <div>
                         <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
                         <div className="space-y-4">
-                            {salonData?.contact?.phone && (
+                            {data?.contact?.phone && (
                                 <p className="text-gray-400 flex items-center">
-                                    <FaPhone className="mr-3 text-lg" style={{ color: salonData?.branding?.primaryColor || '#FFF' }} />
-                                    {salonData.contact.phone}
+                                    <FaPhone className="mr-3 text-lg" style={{ color: data?.branding?.primaryColor || '#FFF' }} />
+                                    {data.contact.phone}
                                 </p>
                             )}
-                            {salonData?.contact?.email && (
+                            {data?.contact?.email && (
                                 <p className="text-gray-400 flex items-center">
-                                    <FaEnvelope className="mr-3 text-lg" style={{ color: salonData?.branding?.primaryColor || '#FFF' }} />
-                                    {salonData.contact.email}
+                                    <FaEnvelope className="mr-3 text-lg" style={{ color: data?.branding?.primaryColor || '#FFF' }} />
+                                    {data.contact.email}
                                 </p>
                             )}
-                            {salonData?.contact?.address && (
+                            {data?.contact?.address && (
                                 <p className="text-gray-400 flex items-start">
-                                    <FaMapMarkerAlt className="mr-3 mt-1 text-lg flex-shrink-0" style={{ color: salonData?.branding?.primaryColor || '#FFF' }} />
-                                    {salonData.contact.address}
+                                    <FaMapMarkerAlt className="mr-3 mt-1 text-lg flex-shrink-0" style={{ color: data?.branding?.primaryColor || '#FFF' }} />
+                                    {data.contact.address}
                                 </p>
                             )}
                         </div>
@@ -114,8 +113,8 @@ const SalonFooter = () => {
                 <div className="border-t border-gray-800 mt-12 pt-8 text-center">
                     <p className="text-gray-500 text-sm">
                         &copy; 2025{' '}
-                        <span style={{ color: salonData?.branding?.primaryColor || '#FFF' }}>
-                            {salonData?.name}
+                        <span style={{ color: data?.branding?.primaryColor || '#FFF' }}>
+                            {data?.name}
                         </span>
                         . All rights reserved.
                     </p>

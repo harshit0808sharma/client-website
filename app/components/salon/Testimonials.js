@@ -1,5 +1,4 @@
 'use client'
-import salonData from '../../data/salon.json';
 import Image from 'next/image';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -13,8 +12,8 @@ const renderStars = (rating) => {
     ));
 };
 
-const SalonTestimonials = () => {
-    if (!salonData?.testimonials?.length) return null;
+const SalonTestimonials = ({data}) => {
+    if (!data?.testimonials?.length) return null;
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -38,20 +37,20 @@ const SalonTestimonials = () => {
         <section
             id="testimonials"
             className="py-20"
-            style={{ backgroundColor: salonData?.branding?.secondaryColor || "#f3f4f6" }}
+            style={{ backgroundColor: data?.branding?.secondaryColor || "#f3f4f6" }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading */}
                 <div className="text-center mb-16">
                     <motion.h2
                         className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
-                        style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                        style={{ color: data?.branding?.primaryColor || "#111" }}
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        {salonData?.testimonialsHeading || "What Our Clients Say"}
+                        {data?.testimonialsHeading || "What Our Clients Say"}
                     </motion.h2>
                     <motion.p
                         className="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -60,7 +59,7 @@ const SalonTestimonials = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        {salonData?.testimonialsSubHeading || "Do not just take our word for it, hear from our satisfied customers"}
+                        {data?.testimonialsSubHeading || "Do not just take our word for it, hear from our satisfied customers"}
                     </motion.p>
                 </div>
 
@@ -72,7 +71,7 @@ const SalonTestimonials = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    {salonData.testimonials.map((testimonial) => (
+                    {data.testimonials.map((testimonial) => (
                         <motion.div
                             key={testimonial.id}
                             className="bg-white rounded-3xl shadow-xl p-8 relative overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
@@ -82,7 +81,7 @@ const SalonTestimonials = () => {
                             <div className="relative mb-6">
                                 <motion.div
                                     className="absolute -top-2 -left-2 text-4xl opacity-20 transform -rotate-12 origin-top-left"
-                                    style={{ color: salonData?.branding?.primaryColor || "#111" }}
+                                    style={{ color: data?.branding?.primaryColor || "#111" }}
                                     initial={{ scale: 0.8 }}
                                     animate={{ scale: 1 }}
                                     transition={{ duration: 0.3, type: 'spring' }}
