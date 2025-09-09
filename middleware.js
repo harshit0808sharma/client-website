@@ -11,7 +11,7 @@ export function middleware(req) {
     const host = req.headers.get("host") || "";
     const pathname = url.pathname;
 
-    // Skip static files, _next, favicon, etc.
+    // Skip internal Next.js paths and static files
     if (
         pathname.startsWith("/api/") ||
         pathname.startsWith("/_next/") ||
@@ -22,29 +22,19 @@ export function middleware(req) {
     }
 
     const hostParts = host.split(".");
-    let salonSlug = null;
+    const subdomain = hostParts[0];
 
-    // --- Localhost ---
-    if (host.includes("localhost")) {
-        const pathSegments = pathname.split("/").filter(Boolean);
-        if (pathSegments[0] && !RESERVED_SUBDOMAINS.includes(pathSegments[0])) {
-            salonSlug = pathSegments[0];
-        }
-    } else {
-        // --- Vercel or Custom Domain ---
-        const subdomain = hostParts[0];
-        const pathSegments = pathname.split("/").filter(Boolean); // Get segments for pathname
-
-        // Prioritize subdomain if it's a valid slug and not a reserved one
-        if (pathSegments[0] && !RESERVED_SUBDOMAINS.includes(pathSegments[0])) {
-            salonSlug = pathSegments[0];
-        } else if (!RESERVED_SUBDOMAINS.includes(subdomain)) {
-            salonSlug = subdomain;
-        }
+    // Check if the host is a subdomain and not a reserved one
+    if (host.includes(".vercel.app") || host.includes("localhost")) {
+        // If it's a vercel or localhost URL, do not perform a subdomain rewrite.
+        // Let the [...salon] dynamic route handle the URL path directly.
+        return NextResponse.next();
     }
 
-    if (salonSlug && !url.searchParams.has("salon")) {
-        url.searchParams.set("salon", salonSlug);
+    if (!RESERVED_SUBDOMAINS.includes(subdomain)) {
+        // This logic only runs for custom domains with subdomains.
+        url.searchParams.set("salon", subdomain);
+        url.pathname = `/`;
         return NextResponse.rewrite(url);
     }
 

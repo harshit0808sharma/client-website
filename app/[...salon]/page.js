@@ -1,4 +1,3 @@
-//[..salon] inside app folder
 "use server";
 
 import { headers } from "next/headers";
@@ -14,77 +13,77 @@ import SalonGetInTouch from "../components/salon/GetInTouch";
 import SalonFooter from "../components/salon/Footer";
 
 export default async function SalonPage(routeProps) {
-  // --- Await params and searchParams ---
-  const params = await routeProps.params;
-  const searchParams = await routeProps.searchParams;
-  const headersList = await headers();
+    const { params, searchParams } = routeProps;
+    const headersList = headers();
 
-  const segments = params.salon || [];
-  const host = headersList.get("host") || "";
-  const isLocalhost = host.includes("localhost");
+    // Await params and searchParams before using them
+    const awaitedParams = await params;
+    const awaitedSearchParams = await searchParams;
 
-  // --- Determine salon slug and subpage ---
-  let slug = null;
-  let subpage = null;
+    // --- Determine salon slug and subpage ---
+    let slug = null;
+    let subpage = null;
 
-  if (isLocalhost) {
-    slug = segments[0] || searchParams?.salon || "radiance-salon";
-    subpage = segments[1] || searchParams?.page || null;
-  } else {
-    const hostParts = host.split(".");
-    slug = hostParts[0] || searchParams?.salon || "radiance-salon";
-    subpage = segments[0] || searchParams?.page || null;
-  }
+    // 1. Check for the slug in search parameters (from subdomain rewrite)
+    if (awaitedSearchParams.salon) {
+        slug = awaitedSearchParams.salon;
+        subpage = awaitedParams.salon?.[0] || null; // Subpage is the first part of the path
+    } else {
+        // 2. Fallback to URL path (for localhost and vercel app)
+        const segments = awaitedParams.salon || [];
+        slug = segments[0] || "radiance-salon";
+        subpage = segments[1] || null;
+    }
 
-  // --- Load salon data ---
-  const salonData = await getSalonBySlug(slug);
+    // --- Load salon data ---
+    const salonData = await getSalonBySlug(slug);
 
-  // --- Fallback for missing salon ---
-  if (!salonData) {
-    return (
-      <div className="flex items-center justify-center min-h-screen text-center">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Salon Not Found</h1>
-          <p className="text-gray-600">{`The salon "${slug}" doesn't exist.`}</p>
-        </div>
-      </div>
-    );
-  }
-
-  // --- Render content based on subpage ---
-  const renderContent = () => {
-    switch (subpage) {
-      case "about":
-        return <SalonAbout data={salonData} />;
-      case "services":
-        return <SalonServices data={salonData} />;
-      case "team":
-        return <SalonTeam data={salonData} />;
-      case "testimonials":
-        return <SalonTestimonials data={salonData} />;
-      case "contact":
-        return <SalonGetInTouch data={salonData} />;
-      default:
-        // Homepage: show all main components
+    // --- Fallback for missing salon ---
+    if (!salonData) {
         return (
-          <>
-            <SalonHero data={salonData} />
-            <SalonAbout data={salonData} />
-            <SalonServices data={salonData} />
-            <SalonTeam data={salonData} />
-            <SalonTestimonials data={salonData} />
-            <SalonGetInTouch data={salonData} />
-          </>
+            <div className="flex items-center justify-center min-h-screen text-center">
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Salon Not Found</h1>
+                    <p className="text-gray-600">{`The salon "${slug}" doesn't exist.`}</p>
+                </div>
+            </div>
         );
     }
-  };
 
-  // --- Render page ---
-  return (
-    <div className="flex flex-col w-full min-h-screen pt-20">
-      <SalonHeader data={salonData} slug={slug} subpage={subpage} />
-      {renderContent()}
-      <SalonFooter data={salonData} />
-    </div>
-  );
+    // --- Render content based on subpage ---
+    const renderContent = () => {
+        switch (subpage) {
+            case "about":
+                return <SalonAbout data={salonData} />;
+            case "services":
+                return <SalonServices data={salonData} />;
+            case "team":
+                return <SalonTeam data={salonData} />;
+            case "testimonials":
+                return <SalonTestimonials data={salonData} />;
+            case "contact":
+                return <SalonGetInTouch data={salonData} />;
+            default:
+                // Homepage: show all main components
+                return (
+                    <>
+                        <SalonHero data={salonData} />
+                        <SalonAbout data={salonData} />
+                        <SalonServices data={salonData} />
+                        <SalonTeam data={salonData} />
+                        <SalonTestimonials data={salonData} />
+                        <SalonGetInTouch data={salonData} />
+                    </>
+                );
+        }
+    };
+
+    // --- Render page ---
+    return (
+        <div className="flex flex-col w-full min-h-screen pt-20">
+            <SalonHeader data={salonData} slug={slug} subpage={subpage} />
+            {renderContent()}
+            <SalonFooter data={salonData} />
+        </div>
+    );
 }
