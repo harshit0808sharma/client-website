@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import salons from "@/data/salon.json"; // adjust path if needed
+import salons from "../../data/salon.json"; // adjust path if needed
 
 // GET /api/salon?slug=radiance-salon
 export async function GET(req) {
