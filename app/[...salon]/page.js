@@ -13,15 +13,16 @@ import SalonGetInTouch from "../components/salon/GetInTouch";
 import SalonFooter from "../components/salon/Footer";
 
 export default async function SalonPage(routeProps) {
+  // --- Await params and searchParams ---
   const params = await routeProps.params;
   const searchParams = await routeProps.searchParams;
   const headersList = await headers();
 
   const segments = params.salon || [];
-
   const host = headersList.get("host") || "";
   const isLocalhost = host.includes("localhost");
 
+  // --- Determine salon slug and subpage ---
   let slug = null;
   let subpage = null;
 
@@ -34,19 +35,22 @@ export default async function SalonPage(routeProps) {
     subpage = segments[0] || searchParams?.page || null;
   }
 
+  // --- Load salon data ---
   const salonData = await getSalonBySlug(slug);
 
+  // --- Fallback for missing salon ---
   if (!salonData) {
     return (
       <div className="flex items-center justify-center min-h-screen text-center">
         <div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">Salon Not Found</h1>
-          <p className="text-gray-600">The salon "{slug}" doesn't exist.</p>
+          <p className="text-gray-600">{`The salon "${slug}" doesn't exist.`}</p>
         </div>
       </div>
     );
   }
 
+  // --- Render content based on subpage ---
   const renderContent = () => {
     switch (subpage) {
       case "about":
@@ -60,6 +64,7 @@ export default async function SalonPage(routeProps) {
       case "contact":
         return <SalonGetInTouch data={salonData} />;
       default:
+        // Homepage: show all main components
         return (
           <>
             <SalonHero data={salonData} />
@@ -73,6 +78,7 @@ export default async function SalonPage(routeProps) {
     }
   };
 
+  // --- Render page ---
   return (
     <div className="flex flex-col w-full min-h-screen pt-20">
       <SalonHeader data={salonData} slug={slug} subpage={subpage} />
