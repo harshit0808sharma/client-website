@@ -16,8 +16,7 @@ const SalonHeader = ({ data }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Get the salon slug from the current URL
-  const currentSlug = pathname.split('/')[1] || ''; // e.g., "radiance-salon"
+  const currentSlug = pathname.split('/')[1] || ''; 
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 

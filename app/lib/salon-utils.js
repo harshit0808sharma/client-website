@@ -1,20 +1,19 @@
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 
-// Adjust path because your JSON is inside app/data
-const filePath = path.join(process.cwd(), "app", "data", "salon.json");
+// const filePath = path.join(process.cwd(), "app", "data", "salon.json");
 
-export async function getAllSalons() {
-  try {
-    const rawData = fs.readFileSync(filePath, "utf8");
-    return JSON.parse(rawData);
-  } catch (err) {
-    console.error("Error reading salon.json:", err);
-    return [];
-  }
-}
+// export async function getAllSalons() {
+//   try {
+//     const rawData = fs.readFileSync(filePath, "utf8");
+//     return JSON.parse(rawData);
+//   } catch (err) {
+//     console.error("Error reading salon.json:", err);
+//     return [];
+//   }
+// }
 
-export async function getSalonData(slug) {
-  const salons = await getAllSalons();
-  return salons.find((salon) => salon.slug === slug) || null;
-}
+// export async function getSalonData(slug) {
+//   const salons = await getAllSalons();
+//   return salons.find((salon) => salon.slug === slug) || null;
+// }

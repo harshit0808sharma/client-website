@@ -162,7 +162,7 @@ const SalonGetInTouch = ({data}) => {
                             )}
                         </motion.div>
 
-                        {/* Opening Hours & Social Links */}
+                        {/* Social Links */}
                         <motion.div className="space-y-10" variants={itemVariants}>
                             {data?.contact?.openingHours?.length > 0 && (
                                 <div>

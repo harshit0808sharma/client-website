@@ -1,6 +1,4 @@
 "use server";
-
-import { headers } from "next/headers";
 import { getSalonBySlug } from "../lib/salons";
 
 import SalonHeader from "../components/salon/Header";
@@ -12,33 +10,46 @@ import SalonTestimonials from "../components/salon/Testimonials";
 import SalonGetInTouch from "../components/salon/GetInTouch";
 import SalonFooter from "../components/salon/Footer";
 
+export async function generateMetadata(routeProps) {
+    const { params } = routeProps;
+    const awaitedParams = await params;
+    
+    const slug = awaitedParams.salon?.[0] || "radiance-salon";
+    const salonData = await getSalonBySlug(slug);
+
+    if (!salonData) {
+        return {
+            title: "Salon Not Found",
+            description: "The requested salon does not exist.",
+        };
+    }
+
+    return {
+        title: salonData.name, // Use the salon's name from the database
+        description: `Explore the services and team at ${salonData.name}. ${salonData.about_short_description}`, // Use the salon's description
+    };
+}
+
 export default async function SalonPage(routeProps) {
     const { params, searchParams } = routeProps;
-    const headersList = headers();
 
-    // Await params and searchParams before using them
     const awaitedParams = await params;
     const awaitedSearchParams = await searchParams;
 
-    // --- Determine salon slug and subpage ---
     let slug = null;
     let subpage = null;
 
-    // 1. Check for the slug in search parameters (from subdomain rewrite)
     if (awaitedSearchParams.salon) {
         slug = awaitedSearchParams.salon;
-        subpage = awaitedParams.salon?.[0] || null; // Subpage is the first part of the path
+        subpage = awaitedParams.salon?.[0] || null; 
     } else {
-        // 2. Fallback to URL path (for localhost and vercel app)
         const segments = awaitedParams.salon || [];
         slug = segments[0] || "radiance-salon";
         subpage = segments[1] || null;
     }
 
-    // --- Load salon data ---
     const salonData = await getSalonBySlug(slug);
 
-    // --- Fallback for missing salon ---
     if (!salonData) {
         return (
             <div className="flex items-center justify-center min-h-screen text-center">
@@ -50,7 +61,6 @@ export default async function SalonPage(routeProps) {
         );
     }
 
-    // --- Render content based on subpage ---
     const renderContent = () => {
         switch (subpage) {
             case "about":
@@ -64,7 +74,6 @@ export default async function SalonPage(routeProps) {
             case "contact":
                 return <SalonGetInTouch data={salonData} />;
             default:
-                // Homepage: show all main components
                 return (
                     <>
                         <SalonHero data={salonData} />
@@ -78,7 +87,6 @@ export default async function SalonPage(routeProps) {
         }
     };
 
-    // --- Render page ---
     return (
         <div className="flex flex-col w-full min-h-screen pt-20">
             <SalonHeader data={salonData} slug={slug} subpage={subpage} />

@@ -56,7 +56,7 @@ const SalonFooter = ({data}) => {
                         )}
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Links */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
                         <ul className="space-y-4">

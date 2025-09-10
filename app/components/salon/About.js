@@ -30,7 +30,6 @@ const SalonAbout = ({data}) => {
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
         >
-            {/* Floating decorative shape 1 */}
             <motion.div
                 className="absolute top-10 left-10 md:top-20 md:left-20 w-16 h-16 md:w-20 md:h-20 rounded-full bg-pink-200 opacity-30 z-0"
                 animate={{
@@ -43,7 +42,6 @@ const SalonAbout = ({data}) => {
                 <FaStar className="w-full h-full text-pink-400" />
             </motion.div>
 
-            {/* Floating decorative shape 2 */}
             <motion.div
                 className="absolute bottom-10 right-10 md:bottom-20 md:right-20 w-16 h-16 md:w-24 md:h-24 rounded-full bg-blue-200 opacity-30 z-0"
                 animate={{

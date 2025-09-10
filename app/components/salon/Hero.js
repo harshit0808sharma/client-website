@@ -31,7 +31,6 @@ const SalonHero = ({data}) => {
             id="home"
             className="relative h-screen flex items-center justify-center overflow-hidden"
         >
-            {/* Background image with subtle animation */}
             <motion.div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${data?.hero?.heroImageUrl || "/placeholder.jpg"})` }}
@@ -40,7 +39,6 @@ const SalonHero = ({data}) => {
                 transition={{ duration: 4, ease: "easeOut" }}
             />
 
-            {/* Overlay gradient for text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
 
             {/* Hero content */}

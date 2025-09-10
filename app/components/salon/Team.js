@@ -47,7 +47,7 @@ const SalonTeam = ({data}) => {
                     </motion.p>
                 </div>
 
-                {/* Team Grid */}
+                {/* Team */}
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     variants={containerVariants}

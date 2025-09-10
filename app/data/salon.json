@@ -181,7 +181,7 @@
           "description": "Trendy cuts, coloring, and professional hair care.",
           "price": 35,
           "duration": "50 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service1.jpg",
           "icon": "FaScissors",
           "order": 1
         },
@@ -191,7 +191,7 @@
           "description": "Relaxing facials and skincare routines for a fresh look.",
           "price": 55,
           "duration": "60 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service2.jpg",
           "icon": "FaSpa",
           "order": 2
         }
@@ -203,7 +203,7 @@
         "clientName": "Ananya Sharma",
         "role": "Regular Client",
         "text": "Amazing service! The staff made me feel special and my hair looks great.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage2.png",
         "rating": 5,
         "order": 1
       },
@@ -212,7 +212,7 @@
         "clientName": "Rohan Mehta",
         "role": "New Client",
         "text": "Professional and friendly team. Loved the ambiance and service.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage6.png",
         "rating": 4,
         "order": 2
       }
@@ -223,7 +223,7 @@
         "name": "Sana Kapoor",
         "role": "Lead Stylist",
         "bio": "Expert in modern hairstyles and color treatments with 10+ years of experience.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage1.png",
         "socials": [
           {
             "platform": "instagram",
@@ -236,7 +236,7 @@
         "name": "Aditya Verma",
         "role": "Skin Specialist",
         "bio": "Specializes in facials and skin rejuvenation treatments.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage5.jpg",
         "socials": [
           {
             "platform": "instagram",
@@ -298,14 +298,14 @@
     "slug": "luminous-salon",
     "name": "Luminous Salon",
     "branding": {
-      "logoUrl": "/images/glow-salon.jpeg",
+      "logoUrl": "/images/luminous-salon.jpeg",
       "faviconUrl": "/images/glow-favicon.ico",
       "primaryColor": "#673AB7",
       "secondaryColor": "#D1C4E9",
       "fontFamily": "Poppins, sans-serif"
     },
     "hero": {
-      "heroImageUrl": "/images/glow-salon.jpeg",
+      "heroImageUrl": "/images/luminous-salon.jpeg",
       "heading": "Glow With Confidence",
       "subHeading": "Personalized beauty treatments for every occasion.",
       "cta": {
@@ -316,7 +316,7 @@
     "about": {
       "title": "About Luminous Salon",
       "paragraph": "Luminous Salon delivers exceptional hair, skin, and nail services in a relaxing environment, helping you shine inside and out.",
-      "imageUrl": "/images/glow-salon.jpeg"
+      "imageUrl": "/images/luminous-salon.jpeg"
     },
     "services": {
       "title": "Our Services",
@@ -328,7 +328,7 @@
           "description": "Professional cuts, coloring, and styling services.",
           "price": 45,
           "duration": "50 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service1.jpg",
           "icon": "FaScissors",
           "order": 1
         },
@@ -338,7 +338,7 @@
           "description": "Relaxing facials and rejuvenating treatments for glowing skin.",
           "price": 65,
           "duration": "60 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service2.jpg",
           "icon": "FaSpa",
           "order": 2
         }
@@ -350,7 +350,7 @@
         "clientName": "Siddhi Patel",
         "role": "Regular Client",
         "text": "Excellent service! I always leave feeling refreshed and confident.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage2.png",
         "rating": 5,
         "order": 1
       },
@@ -359,7 +359,7 @@
         "clientName": "Rahul Desai",
         "role": "New Client",
         "text": "Friendly staff and professional services. Highly recommend.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage6.png",
         "rating": 4,
         "order": 2
       }
@@ -370,7 +370,7 @@
         "name": "Anika Rao",
         "role": "Lead Stylist",
         "bio": "Specializes in creative hair styling and coloring techniques with 9+ years experience.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage1.png",
         "socials": [
           {
             "platform": "instagram",
@@ -383,7 +383,7 @@
         "name": "Dev Malhotra",
         "role": "Skin Therapist",
         "bio": "Expert in facials, skin rejuvenation, and wellness treatments.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage5.jpg",
         "socials": [
           {
             "platform": "instagram",
@@ -429,7 +429,7 @@
     "seo": {
       "metaTitle": "Luminous Salon | Premium Hair & Beauty Services in Mumbai",
       "metaDescription": "Visit Luminous Salon for professional hair, skincare, and nail services. Book your appointment today!",
-      "ogImageUrl": "/images/glow-salon.jpeg",
+      "ogImageUrl": "/images/luminous-salon.jpeg",
       "canonicalUrl": "/",
       "siteUrl": "/"
     },
@@ -445,14 +445,14 @@
     "slug": "sparkle-salon",
     "name": "Sparkle Salon",
     "branding": {
-      "logoUrl": "/images/glow-salon.jpeg",
+      "logoUrl": "/images/sparkle-salon.jpeg",
       "faviconUrl": "/images/glow-favicon.ico",
       "primaryColor": "#FF9800",
       "secondaryColor": "#FFE0B2",
       "fontFamily": "Poppins, sans-serif"
     },
     "hero": {
-      "heroImageUrl": "/images/glow-salon.jpeg",
+      "heroImageUrl": "/images/sparkle-salon.jpeg",
       "heading": "Bring Out Your Sparkle",
       "subHeading": "Tailored beauty treatments for every style and mood.",
       "cta": {
@@ -463,7 +463,7 @@
     "about": {
       "title": "About Sparkle Salon",
       "paragraph": "Sparkle Salon combines luxury and comfort, offering hair, skin, and nail services designed to make you shine.",
-      "imageUrl": "/images/glow-salon.jpeg"
+      "imageUrl": "/images/sparkle-salon.jpeg"
     },
     "services": {
       "title": "Our Services",
@@ -475,7 +475,7 @@
           "description": "Professional cuts, coloring, and modern styling techniques.",
           "price": 50,
           "duration": "50 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service1.jpg",
           "icon": "FaScissors",
           "order": 1
         },
@@ -485,7 +485,7 @@
           "description": "Relaxing facials and rejuvenating spa sessions for radiant skin.",
           "price": 70,
           "duration": "60 min",
-          "imageUrl": "/images/glow-salon.jpeg",
+          "imageUrl": "/images/service2.jpg",
           "icon": "FaSpa",
           "order": 2
         }
@@ -497,7 +497,7 @@
         "clientName": "Neha Gupta",
         "role": "Regular Client",
         "text": "Wonderful staff and services. Always a pleasant experience!",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage2.png",
         "rating": 5,
         "order": 1
       },
@@ -506,7 +506,7 @@
         "clientName": "Amit Joshi",
         "role": "New Client",
         "text": "Great ambiance and professional treatments. Highly recommended.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage6.png",
         "rating": 4,
         "order": 2
       }
@@ -517,7 +517,7 @@
         "name": "Rhea Sharma",
         "role": "Lead Stylist",
         "bio": "Expert in creative hairstyles and coloring with 7+ years of experience.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage1.png",
         "socials": [
           {
             "platform": "instagram",
@@ -530,7 +530,7 @@
         "name": "Arjun Kapoor",
         "role": "Skin Specialist",
         "bio": "Focused on facials, skincare, and rejuvenation treatments.",
-        "photoUrl": "/images/glow-salon.jpeg",
+        "photoUrl": "/images/profileImage5.jpg",
         "socials": [
           {
             "platform": "instagram",
@@ -576,7 +576,7 @@
     "seo": {
       "metaTitle": "Sparkle Salon | Hair, Skin & Nail Services in Mumbai",
       "metaDescription": "Experience Sparkle Salon for professional beauty treatments in Mumbai. Book your appointment now!",
-      "ogImageUrl": "/images/glow-salon.jpeg",
+      "ogImageUrl": "/images/sparkle-salon.jpeg",
       "canonicalUrl": "/",
       "siteUrl": "/"
     },

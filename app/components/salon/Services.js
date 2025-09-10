@@ -70,7 +70,7 @@ const SalonServices = ({data}) => {
           </motion.p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
           variants={containerVariants}

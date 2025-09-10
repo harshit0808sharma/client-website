@@ -11,7 +11,6 @@ export function middleware(req) {
     const host = req.headers.get("host") || "";
     const pathname = url.pathname;
 
-    // Skip internal Next.js paths and static files
     if (
         pathname.startsWith("/api/") ||
         pathname.startsWith("/_next/") ||
@@ -24,15 +23,11 @@ export function middleware(req) {
     const hostParts = host.split(".");
     const subdomain = hostParts[0];
 
-    // Check if the host is a subdomain and not a reserved one
     if (host.includes(".vercel.app") || host.includes("localhost")) {
-        // If it's a vercel or localhost URL, do not perform a subdomain rewrite.
-        // Let the [...salon] dynamic route handle the URL path directly.
         return NextResponse.next();
     }
 
     if (!RESERVED_SUBDOMAINS.includes(subdomain)) {
-        // This logic only runs for custom domains with subdomains.
         url.searchParams.set("salon", subdomain);
         url.pathname = `/`;
         return NextResponse.rewrite(url);
