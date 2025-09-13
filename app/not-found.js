@@ -63,7 +63,7 @@ export default function Custom404() {
           className="text-lg md:text-xl mb-8"
           variants={textVariants}
         >
-          Oops! The page you're looking for doesn't exist.
+          Oops! The page you are looking for does not exist.
         </motion.p>
 
         <motion.div variants={textVariants}>

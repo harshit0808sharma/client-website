@@ -5,20 +5,19 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const SalonTeam = ({ data }) => {
-    if (!data?.team?.length) return null;
+    const [scrollX, setScrollX] = useState(0); // ✅ Hooks always at top
 
-    const [scrollX, setScrollX] = useState(0);
-
-    // Autoplay horizontal scroll if more than 3 members
     useEffect(() => {
-        if (data.team.length <= 3) return;
+        if (!data?.team || data.team.length <= 3) return;
 
         const interval = setInterval(() => {
             setScrollX((prev) => (prev >= data.team.length - 3 ? 0 : prev + 1));
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [data.team.length]);
+    }, [data?.team?.length]);
+
+    if (!data?.team?.length) return null; // ✅ Return after hooks
 
     const containerVariants = {
         hidden: { opacity: 0 },
