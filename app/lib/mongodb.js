@@ -1,4 +1,3 @@
-//app/lib/mongodb.js
 
 import { MongoClient } from "mongodb";
 

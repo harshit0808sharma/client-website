@@ -10,10 +10,39 @@ import SalonTestimonials from "../components/salon/Testimonials";
 import SalonGetInTouch from "../components/salon/GetInTouch";
 import SalonFooter from "../components/salon/Footer";
 
+import {
+    Montserrat, Roboto, Lato, Oswald, Raleway,
+    Nunito, Mulish, Open_Sans, Poppins, Karla
+} from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], variable: "--font-montserrat" });
+const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"], variable: "--font-roboto" });
+const lato = Lato({ subsets: ["latin"], weight: ["100", "300", "400", "700", "900"], variable: "--font-lato" });
+const oswald = Oswald({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700"], variable: "--font-oswald" });
+const raleway = Raleway({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], variable: "--font-raleway" });
+const nunito = Nunito({ subsets: ["latin"], weight: ["200", "300", "400", "600", "700", "800", "900"], variable: "--font-nunito" });
+const mulish = Mulish({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"], variable: "--font-mulish" });
+const openSans = Open_Sans({ subsets: ["latin"], weight: ["300", "400", "600", "700", "800"], variable: "--font-open-sans" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], variable: "--font-poppins" });
+const karla = Karla({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800"], variable: "--font-karla" });
+
+const fontMap = {
+    Montserrat: montserrat,
+    Roboto: roboto,
+    Lato: lato,
+    Oswald: oswald,
+    Raleway: raleway,
+    Nunito: nunito,
+    Mulish: mulish,
+    "Open Sans": openSans,
+    Poppins: poppins,
+    Karla: karla
+};
+
 export async function generateMetadata(routeProps) {
     const { params } = routeProps;
     const awaitedParams = await params;
-    
+
     const slug = awaitedParams.salon?.[0] || "radiance-salon";
     const salonData = await getSalonBySlug(slug);
 
@@ -25,8 +54,8 @@ export async function generateMetadata(routeProps) {
     }
 
     return {
-        title: salonData.name, // Use the salon's name from the database
-        description: `Explore the services and team at ${salonData.name}. ${salonData.about_short_description}`, // Use the salon's description
+        title: salonData.name,
+        description: `Explore the services and team at ${salonData.name}. ${salonData.about_short_description}`,
     };
 }
 
@@ -41,7 +70,7 @@ export default async function SalonPage(routeProps) {
 
     if (awaitedSearchParams.salon) {
         slug = awaitedSearchParams.salon;
-        subpage = awaitedParams.salon?.[0] || null; 
+        subpage = awaitedParams.salon?.[0] || null;
     } else {
         const segments = awaitedParams.salon || [];
         slug = segments[0] || "radiance-salon";
@@ -60,6 +89,9 @@ export default async function SalonPage(routeProps) {
             </div>
         );
     }
+
+    const fontName = salonData?.branding?.fontFamily?.split(",")[0].trim() || "Montserrat";
+    const font = fontMap[fontName] || montserrat;
 
     const renderContent = () => {
         switch (subpage) {
@@ -88,7 +120,7 @@ export default async function SalonPage(routeProps) {
     };
 
     return (
-        <div className="flex flex-col w-full min-h-screen pt-20">
+        <div className={`flex flex-col w-full min-h-screen pt-20 ${font.className}`}>
             <SalonHeader data={salonData} slug={slug} subpage={subpage} />
             {renderContent()}
             <SalonFooter data={salonData} />
