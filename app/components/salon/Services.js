@@ -12,29 +12,22 @@ const iconMap = {
 };
 
 const SalonServices = ({ data }) => {
-  if (!data?.services?.items?.length) return null;
-
-  const services = data.services.items;
-  const slidesPerView = 2; // number of slides visible
+  const services = data?.services?.items || [];
+  const slidesPerView = 2;
   const [current, setCurrent] = useState(0);
 
-  // Autoplay
   useEffect(() => {
+    if (services.length <= slidesPerView) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + slidesPerView) % services.length);
     }, 5000);
     return () => clearInterval(timer);
   }, [services.length]);
 
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + slidesPerView) % services.length);
-  };
+  if (!services.length) return null; 
 
-  const prevSlide = () => {
-    setCurrent((prev) =>
-      (prev - slidesPerView + services.length) % services.length
-    );
-  };
+  const nextSlide = () => setCurrent((prev) => (prev + slidesPerView) % services.length);
+  const prevSlide = () => setCurrent((prev) => (prev - slidesPerView + services.length) % services.length);
 
   return (
     <section
@@ -104,44 +97,31 @@ const SalonServices = ({ data }) => {
                               <div
                                 className="p-3 rounded-full mr-4 shadow-md"
                                 style={{
-                                  backgroundColor:
-                                    data?.branding?.secondaryColor || '#e5e7eb'
+                                  backgroundColor: data?.branding?.secondaryColor || '#e5e7eb'
                                 }}
                               >
                                 <IconComponent
                                   className="text-xl"
-                                  style={{
-                                    color: data?.branding?.primaryColor || '#111'
-                                  }}
+                                  style={{ color: data?.branding?.primaryColor || '#111' }}
                                 />
                               </div>
-                              <h3 className="text-xl font-bold">
-                                {service.title || 'Service Title'}
-                              </h3>
+                              <h3 className="text-xl font-bold">{service.title || 'Service Title'}</h3>
                             </div>
                             <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                              {service.description ||
-                                'Service description not available.'}
+                              {service.description || 'Service description not available.'}
                             </p>
                           </div>
                           <div className="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <div>
-                              <span
-                                className="text-2xl font-bold"
-                                style={{
-                                  color: data?.branding?.primaryColor || '#111'
-                                }}
-                              >
-                                ₹{service.price || 'N/A'}
-                              </span>
-                            </div>
+                            <span
+                              className="text-2xl font-bold"
+                              style={{ color: data?.branding?.primaryColor || '#111' }}
+                            >
+                              ₹{service.price || 'N/A'}
+                            </span>
                             <Link
                               href="/contact"
                               className="flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-semibold shadow-lg hover:scale-105 transition-transform"
-                              style={{
-                                backgroundColor:
-                                  data?.branding?.primaryColor || '#111'
-                              }}
+                              style={{ backgroundColor: data?.branding?.primaryColor || '#111' }}
                             >
                               Book Now <FaArrowRight size={14} />
                             </Link>

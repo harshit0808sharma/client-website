@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const SalonTeam = ({ data }) => {
-    const [scrollX, setScrollX] = useState(0); // ✅ Hooks always at top
+    const [scrollX, setScrollX] = useState(0); 
 
     useEffect(() => {
         if (!data?.team || data.team.length <= 3) return;
@@ -15,9 +15,10 @@ const SalonTeam = ({ data }) => {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [data?.team?.length]);
+    }, [data?.team]);
 
-    if (!data?.team?.length) return null; // ✅ Return after hooks
+
+    if (!data?.team?.length) return null; 
 
     const containerVariants = {
         hidden: { opacity: 0 },

@@ -17,7 +17,6 @@ const SalonTestimonials = ({ data }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
 
-    // Always call hooks first
     useEffect(() => {
         const checkScreen = () => setIsMobile(window.innerWidth < 768);
         checkScreen();
@@ -49,7 +48,7 @@ const SalonTestimonials = ({ data }) => {
         return () => clearInterval(interval);
     }, [maxIndex, slideStep, data?.testimonials?.length]);
 
-    if (!data?.testimonials?.length) return null; // Return after hooks
+    if (!data?.testimonials?.length) return null; 
 
     const handleDragEnd = (event, info) => {
         const threshold = isMobile ? 50 : 100;
